@@ -79,9 +79,3 @@ class CaseFile_Scraper():
         if self.extract_url(soup):
 
             self.download_pdf()
-
-doi = "10.1159/000493088"	
-pmid = 30792648
-
-scraper = CaseFile_Scraper(doi=doi, pmid=str(pmid))
-scraper.scrape_and_download()

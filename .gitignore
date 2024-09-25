@@ -1,3 +1,5 @@
 .env
 .venv
 dataset/chest_dataset
+dataset/final_data
+dataset/__pycache__
