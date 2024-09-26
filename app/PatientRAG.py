@@ -34,7 +34,7 @@ class PatientRAG():
     
     def load_data(self):
 
-        file_path = "../dataset/final_data/" + self.file_name
+        file_path = "../dataset/pdf_data/" + self.file_name
 
         loader = PyPDFLoader(file_path)
         pages = loader.load_and_split()
