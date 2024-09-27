@@ -96,9 +96,6 @@ class PatientRAG():
         store = self.getStore_from_neo4jdb()
         self.set_retrieval_chain(store)
 
-
-
-    
     def query_db(self, query: str):
 
         r = self.hybrid_qa.invoke(
