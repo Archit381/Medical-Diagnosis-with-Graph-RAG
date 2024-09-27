@@ -87,6 +87,17 @@ class PatientRAG():
             raise ValueError("Failed to create RetrievalQA chain, chain is None")
 
         self.hybrid_qa = chain
+
+    def compile_RAG(self):
+
+        document_pages = self.load_data()
+        graph_docs = self.create_graph_docs(document_pages)
+        self.addGraph_to_neo4j(graph_docs)
+        store = self.getStore_from_neo4jdb()
+        self.set_retrieval_chain(store)
+
+
+
     
     def query_db(self, query: str):
 

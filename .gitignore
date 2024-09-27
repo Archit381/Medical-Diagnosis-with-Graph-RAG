@@ -3,3 +3,4 @@
 dataset/chest_dataset/images
 dataset/final_data
 dataset/__pycache__
+app/__pycache__
