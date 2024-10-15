@@ -1,6 +1,4 @@
 .env
 .venv
-dataset/chest_dataset/images
-dataset/final_data
-dataset/__pycache__
+dataset
 app/__pycache__
