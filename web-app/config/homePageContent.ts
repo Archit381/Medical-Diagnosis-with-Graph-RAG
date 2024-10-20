@@ -4,6 +4,12 @@ export const homePageContent={
     title_1: 'Meet your AI',
     title_2: 'diagnosis expert',
     subtitle: 'ClinGraph analyzes your symptoms and provides accurate diagnoses instantly, all in one place. No more second-guessing or waiting for results.',
+    heading_1: 'Our AI instantly analyzes your symptoms and clinical history, giving you expert-level insight tailored to your needs.',
+    heading_2: "Say Goodbye to Uncertainty",
+    subHeading_2: "Our AI-powered tool diagnoses conditions, explains treatment options, and answers your health questions—all in one place. Accessible, reliable, and fast.",
+    heading_3: "Comprehensive Diagnosis Across Key Medical Fields",
+    heading_4: 'See it in action',
+    subHeading_4: "Watch ClinGraph diagnose in real-time and explore how AI-driven insights transform symptom analysis.",
     process: [
         {
             tag: 'process_1',
@@ -21,7 +27,6 @@ export const homePageContent={
             desc: 'Get clarification and further information based on your diagnosis.'
         }
     ],
-    heading_1: 'Our AI instantly analyzes your symptoms and clinical history, giving you expert-level insight tailored to your needs.',
     literatureItems: [
         {
             id: 1,
@@ -104,8 +109,7 @@ export const homePageContent={
             name: 'Surgery'
         },
     ],
-    heading_2: "Say Goodbye to Uncertainty",
-    subHeading_2: "Our AI-powered tool diagnoses conditions, explains treatment options, and answers your health questions—all in one place. Accessible, reliable, and fast.",
+
     bento_section_1: {
         title: 'Analyzes Your Symptoms Instantly',
         subtitle: 'Our AI quickly processes your symptoms and clinical history, providing a precise diagnosis based on vast medical knowledge.'
@@ -122,7 +126,6 @@ export const homePageContent={
         title: 'Engage in Q&A',
         subtitle: 'ClinGraph enables you to ask detailed follow-up questions, with AI drawing from the entire medical knowledge base to provide accurate, context-driven answers.'
     },
-    heading_3: "Comprehensive Diagnosis Across Key Medical Fields",
     medicalFields_1: [
         { name: 'Anesthesia' },
         { name: 'Surgery' },

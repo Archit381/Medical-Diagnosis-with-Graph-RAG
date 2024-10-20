@@ -2,6 +2,7 @@ import Bento from "@/components/Bento Section/bento";
 import MedicalList from "@/components/Medical Field Section/medicalList";
 import HeroSection from "@/components/Hero Section/heroSection";
 import LiteratureCarousel from "@/components/Infinite Carousel/literatureCarousel";
+import DemoSection from "@/components/Demo Section/demoSection";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <LiteratureCarousel />
       <Bento />
       <MedicalList />
+      <DemoSection/>
     </section>
   );
 }
