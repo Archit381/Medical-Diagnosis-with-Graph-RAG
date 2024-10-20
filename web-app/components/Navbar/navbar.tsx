@@ -15,7 +15,6 @@ const Navbar = (props: Props) => {
     <div className="flex justify-between flex-row ">
       <div className="flex flex-row items-center">
         <div>
-          
           <Image
             alt="Website Logo"
             src={logo}
@@ -45,7 +44,7 @@ const Navbar = (props: Props) => {
                 <Link
                   href={item.href}
                   style={{
-                    fontWeight: '500',
+                    fontWeight: "500",
                     color: isHovered
                       ? siteConfig.colorSchemes.primary
                       : "#475467",
@@ -60,7 +59,10 @@ const Navbar = (props: Props) => {
           })}
         </div>
 
-        <div className="flex flex-1 ml-6 py-4 px-7 rounded-full" style={{backgroundColor: siteConfig.colorSchemes.primary}}>
+        <div
+          className="flex flex-1 ml-6 py-4 px-7 rounded-full"
+          style={{ backgroundColor: siteConfig.colorSchemes.primary }}
+        >
           <p className="text-white font-semibold">Button</p>
         </div>
       </div>

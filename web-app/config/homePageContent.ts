@@ -122,5 +122,30 @@ export const homePageContent={
         title: 'Engage in Q&A',
         subtitle: 'ClinGraph enables you to ask detailed follow-up questions, with AI drawing from the entire medical knowledge base to provide accurate, context-driven answers.'
     },
-    
+    heading_3: "Comprehensive Diagnosis Across Key Medical Fields",
+    medicalFields_1: [
+        { name: 'Anesthesia' },
+        { name: 'Surgery' },
+        { name: 'Biochemistry' },
+        { name: 'Dental' },
+        { name: 'ENT' },
+        { name: 'Forensic Medicine (FM)' }
+    ],
+    medicalFields_2: [
+        { name: 'Obstetrics and Gynecology (O&G)' },
+        { name: 'Medicine' },
+        { name: 'Microbiology' },
+        { name: 'Ophthalmology' },
+        { name: 'Orthopedics' },
+        { name: 'Pathology' }
+    ],
+    medicalFields_3: [
+        { name: 'Pediatrics' },
+        { name: 'Pharmacology' },
+        { name: 'Physiology' },
+        { name: 'Psychiatry' },
+        { name: 'Radiology' },
+        { name: 'Skin' },
+    ]
+
 }
