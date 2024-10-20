@@ -1,8 +1,8 @@
 import { siteConfig } from "@/config/site";
 import { homePageContent } from "@/config/homePageContent";
-import uploadLogo from "../../public/upload.svg";
-import insightsLogo from "../../public/ai_insights.svg";
-import chatLogo from "../../public/chat_ai.svg";
+import uploadLogo from "../../public/icons/upload.svg";
+import insightsLogo from "../../public/icons/ai_insights.svg";
+import chatLogo from "../../public/icons/chat_ai.svg";
 import Image from "next/image";
 
 type Props = {};
