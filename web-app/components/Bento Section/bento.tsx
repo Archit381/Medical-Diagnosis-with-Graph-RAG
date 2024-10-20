@@ -161,7 +161,7 @@ const Bento = (props: Props) => {
           <Image
             alt="Literature Gif"
             src={bookGIF}
-            style={{ width: "90%", height: "100%", marginTop: 70 }}
+            style={{ width: "90%",  marginTop: 70 }}
           />
         </div>
 
