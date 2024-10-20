@@ -26,8 +26,7 @@ const ChatBubble = (props: Props) => {
       <Image
         alt="Image Logo"
         src={props.image}
-        width={40}
-        height={40}
+
         style={{ borderRadius: props.roundedImage ? 30 : 6, height: 50, width: 50 }}
       />
       <div className="flex flex-col ml-2">
