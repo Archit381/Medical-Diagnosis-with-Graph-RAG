@@ -1,3 +1,4 @@
+import Bento from "@/components/Bento Section/bento";
 import HeroSection from "@/components/Hero Section/heroSection";
 import LiteratureCarousel from "@/components/Infinite Carousel/literatureCarousel";
 
@@ -6,6 +7,7 @@ export default function Home() {
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <HeroSection />
       <LiteratureCarousel/>
+      <Bento/>
     </section>
   );
 }

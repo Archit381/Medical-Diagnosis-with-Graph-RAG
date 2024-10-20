@@ -1,6 +1,7 @@
 import React from "react";
 import { homePageContent } from "@/config/homePageContent";
 import './carouselStyle.css'
+import { siteConfig } from "@/config/site";
 
 type Props = {};
 
@@ -21,7 +22,7 @@ const LiteratureCarousel = (props: Props) => {
           justifyContent: "center",
         }}
       >
-        <h1 style={{fontSize: 34, fontWeight: '500'}}>{homePageContent.heading_1}</h1>
+        <h1 style={{fontSize: 34, fontWeight: '500', color: siteConfig.colorSchemes.primary}}>{homePageContent.heading_1}</h1>
       </div>
 
       <div className="flex flex-row w-full justify-start items-center">
@@ -36,7 +37,7 @@ const LiteratureCarousel = (props: Props) => {
                 const animationDelay = (30/totalLiteratureItems*(totalLiteratureItems-item.id)*-1)
                 return(
                     <div class={`item items-center text-center justify-center`} key={item.id} style={{animationDelay: `${animationDelay}s`}}>
-                      <p>{item.name}</p>
+                      <p style={{fontWeight: '500', color: siteConfig.colorSchemes.secondary}}>{item.name}</p>
                     </div>
                 )
             })}

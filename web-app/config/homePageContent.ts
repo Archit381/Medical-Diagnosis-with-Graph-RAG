@@ -103,6 +103,24 @@ export const homePageContent={
             id: 20,
             name: 'Surgery'
         },
-    ]
+    ],
+    heading_2: "Say Goodbye to Uncertainty",
+    subHeading_2: "Our AI-powered tool diagnoses conditions, explains treatment options, and answers your health questions—all in one place. Accessible, reliable, and fast.",
+    bento_section_1: {
+        title: 'Analyzes Your Symptoms Instantly',
+        subtitle: 'Our AI quickly processes your symptoms and clinical history, providing a precise diagnosis based on vast medical knowledge.'
+    },
+    bento_section_2: {
+        title: 'Leverages Graph Database for Complex Queries',
+        subtitle: 'ClinGraph uses an advanced graph database to connect symptoms, conditions, and medical insights, allowing for more accurate and comprehensive diagnoses.'
+    },
+    bento_section_3: {
+        title: 'Supports a Wide Range of Conditions',
+        subtitle: "From common illnesses to rare diseases, ClinGraph's extensive knowledge base covers a broad spectrum of medical conditions."
+    },
+    bento_section_4: {
+        title: 'Engage in Q&A',
+        subtitle: 'ClinGraph enables you to ask detailed follow-up questions, with AI drawing from the entire medical knowledge base to provide accurate, context-driven answers.'
+    },
     
 }
