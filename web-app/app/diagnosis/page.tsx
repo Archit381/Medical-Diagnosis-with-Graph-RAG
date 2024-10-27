@@ -65,12 +65,14 @@ const Page = (props: Props) => {
 
       {conversation.map((item, index) => (
         <React.Fragment key={index}>
+          
           <ChatBubble messageType="user" message={item.userMessage} />
 
           <div
             ref={index === conversation.length - 1 ? lastMessageRef : null}
             className="flex flex-1 mr-auto ml-24 mt-10 p-3 rounded-lg items-center"
             style={{
+              maxWidth: "50%",
               wordBreak: "break-word",
               whiteSpace: "normal",
               marginBottom: conversation.length == item.id ? 100 : 0,

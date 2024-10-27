@@ -1,20 +1,56 @@
 import React from "react";
+import CharSplitterRegex from "./charSplitterRegex";
+import { motion } from "framer-motion";
 
 type Props = {
   messageType: string;
   message: string;
 };
 
+const charVariants = {
+  hidden: { opacity: 0 },
+  reveal: { opacity: 1 },
+};
+
 const ChatBubble = ({ messageType, message }: Props) => {
+  const charactersList = CharSplitterRegex(message);
+
   return (
     <div
-      className={`flex flex-1 bg-[#f2f4f7] ${messageType === "user" ? "ml-auto mt-10 mr-24" : "ml-3"} items-center  p-3 rounded-lg`}
+      className={`flex ${messageType === "user" ? "ml-auto mt-10 mr-24 w-1/2" : "ml-3"} p-2 rounded-lg`}
       style={{
         boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
-        maxWidth: "50%",
+        display: "inline-block",
       }}
     >
-      {message}
+      {messageType === "user" ? (
+        <p>{message}</p>
+      ) : (
+        <motion.p
+          initial="hidden"
+          whileInView="reveal"
+          transition={{ staggerDirection: 0.015 }}
+          style={{
+            display: "block",
+            maxWidth: "100%",
+            whiteSpace: "normal",
+            overflowWrap: "break-word",
+            wordBreak: "break-word",
+            margin: 0,
+          }}
+        >
+          {charactersList.map((char, index) => (
+            <motion.span
+              key={index}
+              transition={{ duration: 0.35 }}
+              variants={charVariants}
+              style={{ display: "inline", marginLeft: -10 }}
+            >
+              {char}
+            </motion.span>
+          ))}
+        </motion.p>
+      )}
     </div>
   );
 };
