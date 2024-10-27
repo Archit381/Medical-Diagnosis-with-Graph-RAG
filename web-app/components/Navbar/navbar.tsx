@@ -12,7 +12,7 @@ const Navbar = (props: Props) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="flex justify-between flex-row ">
+    <div className="flex flex-1 w-full justify-between flex-row ">
       <div className="flex flex-row items-center">
         <div>
           <Image

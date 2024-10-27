@@ -6,7 +6,7 @@ type Props = {};
 
 const DemoSection = (props: Props) => {
   return (
-    <div className="w-full justify-start mt-28">
+    <div id="demo-section" className="w-full justify-start mt-28">
       <h1
         style={{
           fontSize: 40,
