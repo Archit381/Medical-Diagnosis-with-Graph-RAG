@@ -7,9 +7,10 @@ import Image from "next/image";
 
 type Props = {
   handleSubmit: (text: string)=>void;
+  isLoading: boolean
 };
 
-const InputBubble = ({handleSubmit}: Props) => {
+const InputBubble = ({handleSubmit, isLoading}: Props) => {
   const [currentText, setCurrentText] = useState("");
 
 
@@ -28,7 +29,8 @@ const InputBubble = ({handleSubmit}: Props) => {
         placeholder="Ask ClinGraph"
       />
 
-      <button className="focus:outline-none hover:bg-[#e4e6eb] p-2 rounded-full" onClick={buttonClick}>
+
+      <button className="focus:outline-none hover:bg-[#e4e6eb] p-2 rounded-full" onClick={buttonClick} disabled={isLoading} >
         <Image alt="orange-arrow" src={Arrow} height={35} width={35} />
       </button>
     </div>

@@ -1,10 +1,12 @@
 "use client";
 
 import InputBubble from "@/components/Chat Components/inputBubble";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Spinner } from "@nextui-org/spinner";
 import logo from "../../public/web_logo.svg";
 import Image from "next/image";
+import IntroComponent from "@/components/Chat Components/introComponent";
+import ChatBubble from "@/components/Chat Components/chatBubble";
 
 type Props = {};
 
@@ -14,39 +16,29 @@ const Page = (props: Props) => {
   >([]);
   const [loading, setLoading] = useState(false);
 
+  const lastMessageRef = useRef<HTMLDivElement | null>(null);
+
   const pause = (ms: number) =>
     new Promise((resolve) => setTimeout(resolve, ms));
 
-  const scrollToBottom = () => {
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      behavior: 'smooth'
-    });
-  };
-  
-
   async function handleInputSubmit(text: string) {
-
-    
+    const nextId =
+      conversation.length > 0
+        ? conversation[conversation.length - 1].id + 1
+        : 1;
 
     updateConversation((prevConversation) => [
       ...prevConversation,
-      { id: conversation.length + 1, userMessage: text, llmResponse: "null" },
+      { id: nextId, userMessage: text, llmResponse: "null" },
     ]);
-
-    scrollToBottom()
 
     setLoading(true);
 
-    scrollToBottom()
-
-    await pause(5000);
+    await pause(2000);
 
     updateLlmResponse(text, text);
 
     setLoading(false);
-
-    scrollToBottom()
   }
 
   const updateLlmResponse = (userQuery: string, llmResponse: string) => {
@@ -59,38 +51,48 @@ const Page = (props: Props) => {
     );
   };
 
+  useEffect(() => {
+    lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [conversation]);
+
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="fixed bottom-8" style={{ width: "60%" }}>
-        <InputBubble handleSubmit={handleInputSubmit} />
+      <div className="fixed bottom-8" style={{ width: "50%" }}>
+        <InputBubble handleSubmit={handleInputSubmit} isLoading={loading} />
       </div>
+
+      {conversation.length > 0 ? null : <IntroComponent />}
 
       {conversation.map((item, index) => (
         <React.Fragment key={index}>
-          <div
-            className="flex flex-1 bg-[#f2f4f7] ml-auto mr-16 mt-10 p-3 rounded-lg"
-            style={{
-              boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
-              maxWidth: "50%",
-              wordBreak: "break-word",
-              whiteSpace: "normal",
-            }}
-          >
-            {item.userMessage}
-          </div>
+          <ChatBubble messageType="user" message={item.userMessage}/>
 
-          {loading && item.llmResponse === "null" ? (
-            <div className="flex flex-1 mr-auto ml-16 mt-10 p-3 rounded-lg">
-              <Spinner />
+          {item.llmResponse === "null" ? (
+            <div className="flex flex-1 mr-auto ml-24 mt-10 p-3 rounded-lg items-center">
+              <Image
+                alt="ClinGraph Logo"
+                src={logo}
+                width={45}
+                height={45}
+                style={{ borderRadius: 20 }}
+              />
+              <div
+                className="flex flex-1 ml-3 items-center bg-[#f2f4f7] p-3 rounded-lg"
+                style={{ boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)" }}
+              >
+                <p style={{ marginRight: 15 }}>Thinking</p>
+                <Spinner color="default" size="sm" />
+              </div>
             </div>
           ) : (
             <div
-              className="flex flex-1 mr-auto ml-16 mt-10 items-center"
+              ref={index === conversation.length - 1 ? lastMessageRef : null}
+              className="flex flex-1 mr-auto ml-24 mt-10 items-center"
               style={{
                 maxWidth: "50%",
                 wordBreak: "break-word",
                 whiteSpace: "normal",
-                marginBottom: (conversation.length==item.id ? 100 : 0),
+                marginBottom: conversation.length == item.id ? 100 : 0,
               }}
             >
               <div>
@@ -102,14 +104,7 @@ const Page = (props: Props) => {
                   style={{ borderRadius: 20 }}
                 />
               </div>
-              <div
-                className="flex flex-1 rounded-lg p-3 bg-[#f2f4f7] ml-3"
-                style={{
-                  boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
-                }}
-              >
-                {item.llmResponse}
-              </div>
+                <ChatBubble messageType="llm"  message={item.llmResponse}/>
             </div>
           )}
         </React.Fragment>
