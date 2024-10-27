@@ -17,8 +17,9 @@ const ChatBubble = ({ messageType, message }: Props) => {
 
   return (
     <div
-      className={`flex ${messageType === "user" ? "ml-auto mt-10 mr-24 w-1/2" : "ml-3"} p-2 rounded-lg`}
+      className={`flex ${messageType === "user" ? "ml-auto mt-10 mr-24" : "ml-3"} p-2 rounded-lg`}
       style={{
+        maxWidth: messageType === "user" ? "50%" : "",
         boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
         display: "inline-block",
       }}
@@ -28,8 +29,8 @@ const ChatBubble = ({ messageType, message }: Props) => {
       ) : (
         <motion.p
           initial="hidden"
-          whileInView="reveal"
-          transition={{ staggerDirection: 0.015 }}
+          animate="reveal"
+          transition={{ staggerChildren: 0.015 }}
           style={{
             display: "block",
             maxWidth: "100%",

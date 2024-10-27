@@ -13,8 +13,7 @@ const Navbar = (props: Props) => {
 
   return (
     <div className="flex flex-1 w-full justify-between flex-row ">
-      <div className="flex flex-row items-center">
-        <div>
+      <a href="/" className="flex flex-row items-center">
           <Image
             alt="Website Logo"
             src={logo}
@@ -22,7 +21,6 @@ const Navbar = (props: Props) => {
             height={30}
             style={{ borderRadius: 5 }}
           />
-        </div>
         <h1
           style={{
             marginLeft: 14,
@@ -34,7 +32,7 @@ const Navbar = (props: Props) => {
         >
           {siteConfig.name}
         </h1>
-      </div>
+      </a>
 
       <div className="flex flex-row items-center">
         <div className="flex flex-row items-center bg-[#f2f4f7] rounded-full py-4 px-4">
@@ -59,12 +57,13 @@ const Navbar = (props: Props) => {
           })}
         </div>
 
-        <div
+        <a
+          href={siteConfig.links.github}
           className="flex flex-1 ml-6 py-4 px-7 rounded-full"
           style={{ backgroundColor: siteConfig.colorSchemes.primary }}
         >
-          <p className="text-white font-semibold">Button</p>
-        </div>
+          <p className="text-white font-semibold">Check the Repo!</p>
+        </a>
       </div>
     </div>
   );
