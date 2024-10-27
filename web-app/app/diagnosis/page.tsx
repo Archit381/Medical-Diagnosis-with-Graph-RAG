@@ -57,7 +57,7 @@ const Page = (props: Props) => {
 
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="fixed bottom-8" style={{ width: "50%" }}>
+      <div className="fixed bottom-8" style={{ width: "50%", zIndex: 10 }}>
         <InputBubble handleSubmit={handleInputSubmit} isLoading={loading} />
       </div>
 
@@ -65,17 +65,25 @@ const Page = (props: Props) => {
 
       {conversation.map((item, index) => (
         <React.Fragment key={index}>
-          <ChatBubble messageType="user" message={item.userMessage}/>
+          <ChatBubble messageType="user" message={item.userMessage} />
 
-          {item.llmResponse === "null" ? (
-            <div className="flex flex-1 mr-auto ml-24 mt-10 p-3 rounded-lg items-center">
-              <Image
-                alt="ClinGraph Logo"
-                src={logo}
-                width={45}
-                height={45}
-                style={{ borderRadius: 20 }}
-              />
+          <div
+            ref={index === conversation.length - 1 ? lastMessageRef : null}
+            className="flex flex-1 mr-auto ml-24 mt-10 p-3 rounded-lg items-center"
+            style={{
+              wordBreak: "break-word",
+              whiteSpace: "normal",
+              marginBottom: conversation.length == item.id ? 100 : 0,
+            }}
+          >
+            <Image
+              alt="ClinGraph Logo"
+              src={logo}
+              width={45}
+              height={45}
+              style={{ borderRadius: 20 }}
+            />
+            {item.llmResponse === "null" ? (
               <div
                 className="flex flex-1 ml-3 items-center bg-[#f2f4f7] p-3 rounded-lg"
                 style={{ boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)" }}
@@ -83,30 +91,10 @@ const Page = (props: Props) => {
                 <p style={{ marginRight: 15 }}>Thinking</p>
                 <Spinner color="default" size="sm" />
               </div>
-            </div>
-          ) : (
-            <div
-              ref={index === conversation.length - 1 ? lastMessageRef : null}
-              className="flex flex-1 mr-auto ml-24 mt-10 items-center"
-              style={{
-                maxWidth: "50%",
-                wordBreak: "break-word",
-                whiteSpace: "normal",
-                marginBottom: conversation.length == item.id ? 100 : 0,
-              }}
-            >
-              <div>
-                <Image
-                  alt="ClinGraph Logo"
-                  src={logo}
-                  width={45}
-                  height={45}
-                  style={{ borderRadius: 20 }}
-                />
-              </div>
-                <ChatBubble messageType="llm"  message={item.llmResponse}/>
-            </div>
-          )}
+            ) : (
+              <ChatBubble messageType="llm" message={item.llmResponse} />
+            )}
+          </div>
         </React.Fragment>
       ))}
     </section>
