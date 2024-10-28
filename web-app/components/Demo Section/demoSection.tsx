@@ -9,7 +9,7 @@ const DemoSection = (props: Props) => {
     <div id="demo-section" className="w-full justify-start mt-28">
       <h1
         style={{
-          fontSize: 40,
+          fontSize: 33,
           fontWeight: "500",
           color: siteConfig.colorSchemes.primary,
         }}
@@ -18,7 +18,7 @@ const DemoSection = (props: Props) => {
       </h1>
       <p
         style={{
-          fontSize: 18,
+          fontSize: 16,
           marginTop: 12,
           width: "60%",
           color: siteConfig.colorSchemes.secondary,

@@ -17,14 +17,14 @@ const Navbar = (props: Props) => {
         <Image
           alt="Website Logo"
           src={logo}
-          width={30}
-          height={30}
+          width={25}
+          height={25}
           style={{ borderRadius: 5 }}
         />
         <h1
           style={{
-            marginLeft: 14,
-            fontSize: 25,
+            marginLeft: 7,
+            fontSize: 20,
             fontFamily: "sans-serif",
             fontWeight: "bold",
             objectFit: "contain",
@@ -36,7 +36,7 @@ const Navbar = (props: Props) => {
 
       <div className="flex flex-row items-center">
         <div
-          className="flex flex-row items-center bg-[#f2f4f7] rounded-full py-4 px-4"
+          className="flex flex-row items-center bg-[#f2f4f7] rounded-full py-3 px-3"
           style={{ boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)" }}
         >
           {siteConfig.navItems.map((item) => {
@@ -46,6 +46,7 @@ const Navbar = (props: Props) => {
                   href={item.href}
                   style={{
                     fontWeight: "500",
+                    fontSize: 14,
                     color: isHovered
                       ? siteConfig.colorSchemes.primary
                       : "#475467",
@@ -66,7 +67,7 @@ const Navbar = (props: Props) => {
           style={{ backgroundColor: siteConfig.colorSchemes.primary, boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)" }}
 
         >
-          <p className="text-white font-semibold">Check the Repo!</p>
+          <p className="text-white font-semibold" style={{fontSize: 14}}>Check the Repo!</p>
         </a>
       </div>
     </div>

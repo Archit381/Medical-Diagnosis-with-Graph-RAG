@@ -3,7 +3,7 @@ import { homePageContent } from "@/config/homePageContent";
 import uploadLogo from "../../public/icons/upload.svg";
 import insightsLogo from "../../public/icons/ai_insights.svg";
 import chatLogo from "../../public/icons/chat_ai.svg";
-import workingSc from '../../public/screenshots/1.png'
+import workingSc from "../../public/screenshots/demo.gif";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -26,13 +26,13 @@ const imageMap = {
 
 const HeroSection = (props: Props) => {
   return (
-    <div className="w-full justify-start mt-28">
-      <h1 style={{ fontSize: 80, color: siteConfig.colorSchemes.primary }}>
+    <div className="w-full justify-start mt-20">
+      <h1 style={{ fontSize: 60, color: siteConfig.colorSchemes.primary }}>
         {homePageContent.title_1}
       </h1>
       <h1
         style={{
-          fontSize: 80,
+          fontSize: 60,
           marginTop: -20,
           color: siteConfig.colorSchemes.primary,
         }}
@@ -44,7 +44,7 @@ const HeroSection = (props: Props) => {
           color: siteConfig.colorSchemes.secondary,
           marginTop: 15,
           width: "60%",
-          fontSize: 17,
+          fontSize: 15,
           fontWeight: "500",
         }}
       >
@@ -58,16 +58,16 @@ const HeroSection = (props: Props) => {
           return (
             <div
               key={item.tag}
-              className="flex flex-row items-center mt-12 mr-12"
+              className="flex flex-row items-center mt-8 mr-12"
             >
               {image && (
-                <Image src={image.src} alt={image.alt} width={40} height={40} />
+                <Image src={image.src} alt={image.alt} width={30} height={30} />
               )}
 
               <p
                 style={{
                   color: siteConfig.colorSchemes.primary,
-                  fontSize: 20,
+                  fontSize: 15,
                   marginLeft: 10,
                 }}
               >
@@ -83,10 +83,12 @@ const HeroSection = (props: Props) => {
           style={{
             backgroundColor: siteConfig.colorSchemes.primary,
             borderRadius: 50,
+            display: 'flex',
+            justifyContent: 'center'
           }}
         >
-          <p style={{ color: "white" }} className="px-20 py-3">
-          <Link href="/diagnosis">Get Started</Link>
+          <p style={{ color: "white", fontSize: 13 }} className="flex flex-1 px-16 text-center items-center">
+            <Link href="/diagnosis">Get Started</Link>
           </p>
         </div>
         <a href="#demo-section">
@@ -98,8 +100,8 @@ const HeroSection = (props: Props) => {
             }}
           >
             <p
-              style={{ color: siteConfig.colorSchemes.primary }}
-              className="px-20 py-3"
+              style={{ color: siteConfig.colorSchemes.primary, fontSize: 13 }}
+              className="px-16 py-3"
             >
               See it in action
             </p>
@@ -109,8 +111,8 @@ const HeroSection = (props: Props) => {
 
       {/* Gif of the website workflow */}
 
-      <div className="flex flex-1 w-full mt-16 rounded-lg border-8 border-[#eaecf0] items-center justify-center" >
-        <Image alt="Chatbot Screenshot" src={workingSc} /> 
+      <div className="flex flex-1 w-full mt-16 rounded-lg border-8 border-[#eaecf0] items-center justify-center">
+        <Image alt="Chatbot Screenshot" src={workingSc} />
       </div>
     </div>
   );

@@ -15,10 +15,10 @@ type Props = {};
 
 const Bento = (props: Props) => {
   return (
-    <div className="w-full justify-start mt-24">
+    <div className="w-full justify-start mt-20">
       <h1
         style={{
-          fontSize: 40,
+          fontSize: 32,
           fontWeight: "500",
           color: siteConfig.colorSchemes.primary,
         }}
@@ -27,7 +27,7 @@ const Bento = (props: Props) => {
       </h1>
       <p
         style={{
-          fontSize: 18,
+          fontSize: 16,
           marginTop: 12,
           width: "60%",
           color: siteConfig.colorSchemes.secondary,

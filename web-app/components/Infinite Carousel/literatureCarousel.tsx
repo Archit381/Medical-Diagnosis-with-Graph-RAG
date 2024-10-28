@@ -22,7 +22,7 @@ const LiteratureCarousel = (props: Props) => {
       >
         <h1
           style={{
-            fontSize: 34,
+            fontSize: 28,
             fontWeight: "500",
             color: siteConfig.colorSchemes.primary,
           }}

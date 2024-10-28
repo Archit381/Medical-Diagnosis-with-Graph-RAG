@@ -11,7 +11,7 @@ const MedicalList = (props: Props) => {
       <div className="flex flex-1 justify-center flex-col text-center">
         <h1
           style={{
-            fontSize: 40,
+            fontSize: 33,
             fontWeight: "500",
             color: siteConfig.colorSchemes.primary,
           }}
