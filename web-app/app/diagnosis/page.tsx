@@ -7,26 +7,47 @@ import logo from "../../public/web_logo.svg";
 import Image from "next/image";
 import IntroComponent from "@/components/Chat Components/introComponent";
 import ChatBubble from "@/components/Chat Components/chatBubble";
+import axios from "axios";
 
 type Props = {};
 
 const Page = (props: Props) => {
-  const [conversation, updateConversation] = useState<
-    { id: number; userMessage: string; llmResponse: string }[]
-  >([]);
+  const [conversation, updateConversation] = useState<{ id: number; userMessage: string; llmResponse: string }[]>([]);
   const [loading, setLoading] = useState(false);
-
   const lastMessageRef = useRef<HTMLDivElement | null>(null);
 
-  const pause = (ms: number) =>
-    new Promise((resolve) => setTimeout(resolve, ms));
+  // Function to create context from conversation
+  const formatConversationIntoContext = () => {
+    return conversation.map((item) => {
+      return `user: "${item.userMessage}"\n       ClinGraph (You): "${item.llmResponse}"\n`;
+    }).join('');
+  };
 
+  // API request function
+  const apiRequest = async (query: string, context: string) => {
+    const modifiedStr = query.replace(/\?+$/, '');
+    const url = `https://70f4-171-48-61-234.ngrok-free.app/query/${modifiedStr}?context=${context}`;
+
+    try {
+      const response = await axios.get(url, {
+        headers: {
+          "ngrok-skip-browser-warning": "69420",
+        }
+      });
+
+      const data = await response.data;
+      return data.result; 
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Function to handle input submission
   async function handleInputSubmit(text: string) {
-    const nextId =
-      conversation.length > 0
-        ? conversation[conversation.length - 1].id + 1
-        : 1;
+    const nextId = conversation.length > 0 ? conversation[conversation.length - 1].id + 1 : 1;
 
+    // Update conversation with the user's message
     updateConversation((prevConversation) => [
       ...prevConversation,
       { id: nextId, userMessage: text, llmResponse: "null" },
@@ -34,19 +55,19 @@ const Page = (props: Props) => {
 
     setLoading(true);
 
-    await pause(2000);
-
-    updateLlmResponse(text, text);
-
+    const context = formatConversationIntoContext();
+    
+    const llmReply = await apiRequest(text, context);
+    
+    updateLlmResponse(text, llmReply);
+    
     setLoading(false);
   }
 
   const updateLlmResponse = (userQuery: string, llmResponse: string) => {
     updateConversation((prevConversation) =>
       prevConversation.map((item) =>
-        item.userMessage === userQuery
-          ? { ...item, llmResponse: llmResponse }
-          : item
+        item.userMessage === userQuery ? { ...item, llmResponse: llmResponse } : item
       )
     );
   };
@@ -65,7 +86,6 @@ const Page = (props: Props) => {
 
       {conversation.map((item, index) => (
         <React.Fragment key={index}>
-          
           <ChatBubble messageType="user" message={item.userMessage} />
 
           <div
@@ -75,7 +95,7 @@ const Page = (props: Props) => {
               maxWidth: "50%",
               wordBreak: "break-word",
               whiteSpace: "normal",
-              marginBottom: conversation.length == item.id ? 100 : 0,
+              marginBottom: conversation.length === item.id ? 100 : 0,
             }}
           >
             <Image

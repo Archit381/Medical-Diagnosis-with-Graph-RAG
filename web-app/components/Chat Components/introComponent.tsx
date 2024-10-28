@@ -23,7 +23,7 @@ const IntroComponent = (props: Props) => {
       <div className="rotating-phrases mt-3">
         {diagnosisPageContent.phrases.map((item) =>{
             return(
-                <span style={{fontFamily: '500', color: siteConfig.colorSchemes.secondary}}>{item}</span>
+                <span key= {item} style={{fontFamily: '500', color: siteConfig.colorSchemes.secondary}}>{item}</span>
             )
         })}
       </div>

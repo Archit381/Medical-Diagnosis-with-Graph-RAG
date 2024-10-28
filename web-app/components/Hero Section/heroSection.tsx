@@ -3,6 +3,7 @@ import { homePageContent } from "@/config/homePageContent";
 import uploadLogo from "../../public/icons/upload.svg";
 import insightsLogo from "../../public/icons/ai_insights.svg";
 import chatLogo from "../../public/icons/chat_ai.svg";
+import workingSc from '../../public/screenshots/1.png'
 import Image from "next/image";
 import Link from "next/link";
 
@@ -108,8 +109,8 @@ const HeroSection = (props: Props) => {
 
       {/* Gif of the website workflow */}
 
-      <div className="flex w-full mt-16 h-52 rounded-lg border-8 border-[#eaecf0] items-center justify-center p-96">
-        GIF of the website working here
+      <div className="flex flex-1 w-full mt-16 rounded-lg border-8 border-[#eaecf0] items-center justify-center" >
+        <Image alt="Chatbot Screenshot" src={workingSc} /> 
       </div>
     </div>
   );
