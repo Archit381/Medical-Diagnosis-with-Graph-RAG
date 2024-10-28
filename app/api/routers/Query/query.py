@@ -29,9 +29,9 @@ def instantiate_dependencies():
         print('RAG Initialized and ready for Q-A')
 
 @router.get('/{query}')
-def query_llm(query: str) -> dict:
+def query_llm(query: str, context: str) -> dict:
     
     global rag
-    llm_response = rag.queryLLM(query)
+    llm_response = rag.queryLLM(query, context)
 
     return {'result': llm_response}
