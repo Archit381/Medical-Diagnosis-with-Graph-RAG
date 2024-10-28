@@ -15,8 +15,15 @@ const InputBubble = ({handleSubmit, isLoading}: Props) => {
 
 
   const buttonClick=()=>{
+    setCurrentText("");
     handleSubmit(currentText);
   }
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && !isLoading) {
+      buttonClick();
+    }
+  };
 
   return (
     <div className="flex flex-1 w-full h-full bg-[#f2f4f7] rounded-3xl p-3 shadow-lg z-10">
@@ -24,6 +31,7 @@ const InputBubble = ({handleSubmit, isLoading}: Props) => {
         type="text"
         value={currentText}
         onChange={(e) => setCurrentText(e.target.value)}
+        onKeyDown={handleKeyDown}
         className="flex flex-1 rounded-md focus:outline-none bg-[#f2f4f7]"  
         style={{ color: siteConfig.colorSchemes.primary }}
         placeholder="Ask ClinGraph"

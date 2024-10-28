@@ -16,14 +16,12 @@ const Page = (props: Props) => {
   const [loading, setLoading] = useState(false);
   const lastMessageRef = useRef<HTMLDivElement | null>(null);
 
-  // Function to create context from conversation
   const formatConversationIntoContext = () => {
     return conversation.map((item) => {
       return `user: "${item.userMessage}"\n       ClinGraph (You): "${item.llmResponse}"\n`;
     }).join('');
   };
 
-  // API request function
   const apiRequest = async (query: string, context: string) => {
     const modifiedStr = query.replace(/\?+$/, '');
     const url = `https://70f4-171-48-61-234.ngrok-free.app/query/${modifiedStr}?context=${context}`;
@@ -43,11 +41,9 @@ const Page = (props: Props) => {
     }
   };
 
-  // Function to handle input submission
   async function handleInputSubmit(text: string) {
     const nextId = conversation.length > 0 ? conversation[conversation.length - 1].id + 1 : 1;
 
-    // Update conversation with the user's message
     updateConversation((prevConversation) => [
       ...prevConversation,
       { id: nextId, userMessage: text, llmResponse: "null" },
