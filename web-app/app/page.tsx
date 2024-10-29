@@ -11,7 +11,7 @@ export default function Home() {
       <LiteratureCarousel />
       <Bento />
       <MedicalList />
-      <DemoSection/>
+      {/* <DemoSection/> */}
     </section>
   );
 }

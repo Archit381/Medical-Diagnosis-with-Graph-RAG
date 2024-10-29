@@ -7,6 +7,7 @@ import workingSc from "../../public/screenshots/demo.gif";
 import Image from "next/image";
 import Link from "next/link";
 
+type ImageKeys = keyof typeof imageMap;
 
 type Props = {};
 
@@ -54,7 +55,7 @@ const HeroSection = (props: Props) => {
 
       <div className="flex flex-row">
         {homePageContent.process.map((item) => {
-          const image = imageMap[item.tag];
+          const image = imageMap[item.tag as ImageKeys];
 
           return (
             <div

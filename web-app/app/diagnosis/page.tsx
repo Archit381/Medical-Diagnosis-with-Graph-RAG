@@ -24,7 +24,7 @@ const Page = (props: Props) => {
 
   const apiRequest = async (query: string, context: string) => {
     const modifiedStr = query.replace(/\?+$/, '');
-    const url = `https://70f4-171-48-61-234.ngrok-free.app/query/${modifiedStr}?context=${context}`;
+    const url = `https://architojha-clingraph-api.hf.space/query/${modifiedStr}?context=${context}`;
 
     try {
       const response = await axios.get(url, {
