@@ -6,6 +6,7 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import Navbar from "@/components/Navbar/navbar";
 
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
@@ -33,11 +34,11 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-white font-sans antialiased",
           fontSans.variable
         )}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+        <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
           <div className="relative flex flex-col h-screen">
             <main className="container mx-auto pt-6 max-w-7xl flex-grow">
               <Navbar />
