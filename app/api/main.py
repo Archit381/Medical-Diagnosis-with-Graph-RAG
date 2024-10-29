@@ -18,3 +18,4 @@ app.include_router(query_router)
 @app.get('/')
 def read_root():
     return Response('Server is running')
+

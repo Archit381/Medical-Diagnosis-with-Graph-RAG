@@ -13,7 +13,7 @@ global rag
 def instantiate_dependencies():
 
     embedding_model = HuggingFaceEmbeddings(model_name = 'NeuML/pubmedbert-base-embeddings')
-    llm = ChatGroq(groq_api_key=os.getenv('groq_api'), model_name='gemma2-9b-it')
+    llm = ChatGroq(groq_api_key=os.getenv('GROQ_API_KEY'), model_name='gemma2-9b-it')
     
     graph = Neo4jGraph(
         url = os.getenv('NEO4J_URI'),

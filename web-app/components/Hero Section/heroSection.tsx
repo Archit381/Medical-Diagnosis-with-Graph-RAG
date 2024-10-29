@@ -7,6 +7,7 @@ import workingSc from "../../public/screenshots/demo.gif";
 import Image from "next/image";
 import Link from "next/link";
 
+
 type Props = {};
 
 const imageMap = {

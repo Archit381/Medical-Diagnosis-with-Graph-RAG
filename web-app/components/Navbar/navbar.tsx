@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -13,7 +13,7 @@ const Navbar = (props: Props) => {
 
   return (
     <div className="flex flex-1 w-full justify-between flex-row ">
-      <a href="/" className="flex flex-row items-center">
+      <div className="flex flex-row items-center">
         <Image
           alt="Website Logo"
           src={logo}
@@ -32,7 +32,7 @@ const Navbar = (props: Props) => {
         >
           {siteConfig.name}
         </h1>
-      </a>
+      </div>
 
       <div className="flex flex-row items-center">
         <div

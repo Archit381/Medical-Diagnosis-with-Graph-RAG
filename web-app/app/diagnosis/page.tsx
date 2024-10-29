@@ -106,7 +106,7 @@ const Page = (props: Props) => {
                 className="flex flex-1 ml-3 items-center bg-[#f2f4f7] p-3 rounded-lg"
                 style={{ boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)" }}
               >
-                <p style={{ marginRight: 15 }}>Thinking</p>
+                <p style={{ marginRight: 15 }}>Analyzing</p>
                 <Spinner color="default" size="sm" />
               </div>
             ) : (
