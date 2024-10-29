@@ -37,7 +37,7 @@ const LiteratureCarousel = (props: Props) => {
           <p>Knowledge Base</p>
         </div> */}
 
-        <div class="wrapper">
+        <div className="wrapper">
           {homePageContent.literatureItems.map((item) => {
             const animationDelay =
               (30 / totalLiteratureItems) *
@@ -45,7 +45,7 @@ const LiteratureCarousel = (props: Props) => {
               -1;
             return (
               <div
-                class={`item items-center text-center justify-center`}
+                className={`item items-center text-center justify-center`}
                 key={item.id}
                 style={{ animationDelay: `${animationDelay}s` }}
               >
