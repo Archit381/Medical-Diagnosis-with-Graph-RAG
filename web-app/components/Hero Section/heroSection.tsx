@@ -1,3 +1,4 @@
+import "./style.css";
 import { siteConfig } from "@/config/site";
 import { homePageContent } from "@/config/homePageContent";
 import uploadLogo from "../../public/icons/upload.svg";
@@ -29,67 +30,78 @@ const imageMap = {
 const HeroSection = (props: Props) => {
   return (
     <div className="w-full justify-start mt-20">
-      <h1 style={{ fontSize: 60, color: siteConfig.colorSchemes.primary }}>
-        {homePageContent.title_1}
-      </h1>
-      <h1
-        style={{
-          fontSize: 60,
-          marginTop: -20,
-          color: siteConfig.colorSchemes.primary,
-        }}
-      >
-        {homePageContent.title_2}
-      </h1>
-      <p
-        style={{
-          color: siteConfig.colorSchemes.secondary,
-          marginTop: 15,
-          width: "60%",
-          fontSize: 15,
-          fontWeight: "500",
-        }}
-      >
-        {homePageContent.subtitle}
-      </p>
+      <div className="section-1-fade">
+        <h1 style={{ fontSize: 60, color: siteConfig.colorSchemes.primary }}>
+          {homePageContent.title_1}
+        </h1>
+        <h1
+          style={{
+            fontSize: 60,
+            marginTop: -20,
+            color: siteConfig.colorSchemes.primary,
+          }}
+        >
+          {homePageContent.title_2}
+        </h1>
+        <p
+          style={{
+            color: siteConfig.colorSchemes.secondary,
+            marginTop: 15,
+            width: "60%",
+            fontSize: 15,
+            fontWeight: "500",
+          }}
+        >
+          {homePageContent.subtitle}
+        </p>
 
-      <div className="flex flex-row">
-        {homePageContent.process.map((item) => {
-          const image = imageMap[item.tag as ImageKeys];
+        <div className="flex flex-row">
+          {homePageContent.process.map((item) => {
+            const image = imageMap[item.tag as ImageKeys];
 
-          return (
-            <div
-              key={item.tag}
-              className="flex flex-row items-center mt-8 mr-12"
-            >
-              {image && (
-                <Image src={image.src} alt={image.alt} width={30} height={30} />
-              )}
-
-              <p
-                style={{
-                  color: siteConfig.colorSchemes.primary,
-                  fontSize: 15,
-                  marginLeft: 10,
-                }}
+            return (
+              <div
+                key={item.tag}
+                className="flex flex-row items-center mt-8 mr-12"
               >
-                {item.heading}
-              </p>
-            </div>
-          );
-        })}
+                {image && (
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    width={30}
+                    height={30}
+                  />
+                )}
+
+                <p
+                  style={{
+                    color: siteConfig.colorSchemes.primary,
+                    fontSize: 15,
+                    marginLeft: 10,
+                  }}
+                >
+                  {item.heading}
+                </p>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
-      <div className="flex flex-row mt-14">
+      <div className="flex flex-row mt-14 section-2-fade">
         <div
           style={{
             backgroundColor: siteConfig.colorSchemes.primary,
             borderRadius: 50,
-            display: 'flex',
-            justifyContent: 'center'
+            display: "flex",
+            justifyContent: "center",
+            
           }}
         >
-          <p style={{ color: "white", fontSize: 13 }} className="flex flex-1 px-16 text-center items-center">
+          <p
+            style={{ color: "white", fontSize: 13 }}
+            className="flex flex-1 px-16 text-center items-center"
+          >
             <Link href="/diagnosis">Get Started</Link>
           </p>
         </div>
@@ -98,7 +110,7 @@ const HeroSection = (props: Props) => {
             style={{
               backgroundColor: "#f2f4f7",
               borderRadius: 50,
-              marginLeft: 15,
+              marginLeft: 15, 
             }}
           >
             <p
@@ -113,7 +125,7 @@ const HeroSection = (props: Props) => {
 
       {/* Gif of the website workflow */}
 
-      <div className="flex flex-1 w-full mt-16 rounded-lg border-8 border-[#eaecf0] items-center justify-center">
+      <div className="flex flex-1 w-full mt-16 rounded-lg border-8 border-[#eaecf0] items-center justify-center section-3-moveUp  ">
         <Image alt="Chatbot Screenshot" src={workingSc} />
       </div>
     </div>

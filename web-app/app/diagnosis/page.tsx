@@ -23,7 +23,7 @@ const Page = (props: Props) => {
   };
 
   const apiRequest = async (query: string, context: string) => {
-    const modifiedStr = query.replace(/\?+$/, '');
+    const modifiedStr = query.replace(/[^\w]+$/, '');
     const url = `https://architojha-clingraph-api.hf.space/query/${modifiedStr}?context=${context}`;
 
     try {
